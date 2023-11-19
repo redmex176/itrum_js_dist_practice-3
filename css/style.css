@@ -1,0 +1,49 @@
+.container {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px 2px;
+    
+}
+.wrapp {
+    width: 100px;
+    margin: 0 auto;
+}
+.pokemon__card {
+    width: 100%;    
+    margin: 0 auto;
+    height: 100%;
+    align-items: center;
+}
+.search {
+    margin: 0 auto;
+  
+    margin-top: 20px;
+}
+.name__pokemon {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.search__btn {
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+.pokemon__card img {
+
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 0px 0px 2px 2px;
+}
+.btns {
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+}
+
+.wrapp__search {
+    position: relative;
+    left: -50px;
+    display: flex;
+}
