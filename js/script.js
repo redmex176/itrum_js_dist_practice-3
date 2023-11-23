@@ -6,14 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
           searchInput = document.querySelector('.search'),
           searchBtn = document.querySelector('.search__btn');
 
-    let idPokemon = 200;
-   
+    let initialPokemonId = 200;
+    
         function getPokemon(id) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
             .then(data => data.json())
             .then(data => {
                 imgPokemon.src = data.sprites.front_default;
                 namePokemon.textContent = data.name;
+                searchInput.value = '';
+            })
+            .catch(error => {
+                alert("Ошибка");
+                searchInput.value = '';
+                console.log(error);
             })
     }
 
@@ -23,23 +29,30 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`https://pokeapi.co/api/v2/pokemon/${searchName}`)
             .then(data => data.json())
             .then(data => {
-                idPokemon = data.id;
-                getPokemon(idPokemon);
+                initialPokemonId = data.id;
+                getPokemon(initialPokemonId);
+            })
+            .catch(error => {
+                alert("Ошибка");
+                searchInput.value = '';
+                console.log(error);
             })
     }
 
     function getNextPokemon() {
-        idPokemon++;
-        getPokemon(idPokemon);
+        initialPokemonId++;
+        getPokemon(initialPokemonId);
     }
+
     function getPrevPokemon() {
-        idPokemon--;
-        getPokemon(idPokemon);
+        initialPokemonId--;
+        getPokemon(initialPokemonId);
     }
+    
     searchBtn.addEventListener('click', searchPokemon);
     btnNext.addEventListener('click', getNextPokemon);
     btnPrev.addEventListener('click', getPrevPokemon);
 
-    getPokemon(idPokemon);
+    getPokemon(initialPokemonId);
 
 });
