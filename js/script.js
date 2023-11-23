@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
           searchInput = document.querySelector('.search'),
           searchBtn = document.querySelector('.search__btn');
 
-    let initialPokemonId = 200;
-    
+    let initialPokemonId = Math.floor(Math.random() * 1001);
+
         function getPokemon(id) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
             .then(data => data.json())
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 getPokemon(initialPokemonId);
             })
             .catch(error => {
-                alert("Ошибка");
+                alert("Такого покемона нет!");
                 searchInput.value = '';
                 console.log(error);
             })
